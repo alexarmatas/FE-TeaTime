@@ -23,11 +23,20 @@ h1{
 }
 
 .startText{
-    font-family: "assistant", sans-serif;
-    font-size: 1rem;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: .75rem;
     color: #ADB0BF;
 }
 
+.imgText{
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 1px pink;
+    position: absolute;
+    bottom: 35px;
+    right: 40px;
+}
 
 
 
@@ -65,6 +74,7 @@ header{
 
 .col{
     padding: 1.5em;
+    position: relative;
 }
 
 .col-1:hover .imgAzura{
@@ -96,6 +106,8 @@ img{
     border-color: pink;
     border-radius: 25px;
 }
+
+
 
 @media (max-width:600px){
     .columns{
