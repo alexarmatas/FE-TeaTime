@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>FE Tea Time</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FE Tea Party</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400i,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Assistant:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
         <header>
-            <h1>Fire Emblem Tea Time</h1>
+            <div class="site-title">
+                <h1>Fire Emblem Tea Party</h1>
+                <p class="subtitle">Increase your support rank with good conversation</p>
+            </div>
         </header>
-        
-        <div class ="question-board">
-            <div id=npc-id>Azura</div> 
-            Conversation <span id="question-number">1</span>of 5
-        </div>
-        <img src="images/azuraBlank.png" alt="azuraBlank" id="npc-expression" onclick="initialize()">
-
-        <div class="choices">
-            <div class="questions">
-                <button type = "button" id = "q1">X</button>
-                <button type = "button" id = "q2">X</button>
-                <button type = "button" id = "q3">X</button>
-                <p id ="startText">Click on Azura to begin!</p>
-
+    </div>
+    <div class="container" id="separator"></div>
+    <div class="container">
+        <div class="columns">
+            <div class="col col-1">
+                <img class="imgAzura"src="images\azuraFace\azuraBase.png" alt="">
+            </div>
+            <div class="col col-2">
+                <img class="imgAnna" src="images/annaFace/annaBase.png" alt="">
+            </div>
+            <div class="col col-3">
+                <img class="imgForrest" src="images/forrestFace/forrestBase.png" alt="">
             </div>
         </div>
+        <div class="columns">
+            <div class="col col-4">
+                <img class="imgLeo" src="images/leoFace/leoBase.png" alt="">
+            </div>
+            <div class="col col-5">
+                <img class="imgMarth" src="images/marthFace/marthBase.png" alt="">
+            </div>
+            <div class="col col-6">
+                <img class="imgOdin" src="images/odinFace/odinBase.png" alt="">
+            </div>
+        </div>
+        <div class="columns">
+            <p class="startText">Click on any character to start!</p>
+        </div>
 
-    <script src="app.js"></script>
-    </body>
+    </div>
+    
+</body>
 </html>
