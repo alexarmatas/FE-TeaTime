@@ -1,6 +1,14 @@
-const azura_col = document.getElementsByClassName("col-1");
-const anna
+const body = document.querySelector('body');
 
-function moveCenter(){
-    console.log("XD");
-}
+
+body.addEventListener('click', function(e){
+    console.log(e.target.className);
+    if(e.target.className == 'imgAzura' || 'imgText'){
+        console.log(e);
+        const img = e.target.parentElement;
+        console.log(img);
+        console.log(img.parentNode);
+        img.parentNode.removeChild(img);
+
+    }
+})
