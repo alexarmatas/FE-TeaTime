@@ -96,3 +96,10 @@ img{
     border-color: pink;
     border-radius: 25px;
 }
+
+@media (max-width:600px){
+    .columns{
+        flex-direction: column;
+        align-items: center;
+    }
+}
