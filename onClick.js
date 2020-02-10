@@ -1,14 +1,26 @@
-const body = document.querySelector('body');
+//declare all things I need on the DOM
+const IMAGES = document.querySelectorAll("img");
 
+const imageArray = Array.from(IMAGES);
 
-body.addEventListener('click', function(e){
-    console.log(e.target.className);
-    if(e.target.className == 'imgAzura' || 'imgText'){
-        console.log(e);
-        const img = e.target.parentElement;
-        console.log(img);
-        console.log(img.parentNode);
-        img.parentNode.removeChild(img);
+function removableFunction(){
+        const selectedImage = event.target;
+        const nonSelected = imageArray.filter((image) => image != event.target);
+        nonSelected.forEach( function(img){
 
+            img.style.opacity = "0";
+        });
+        console.log("hi");
     }
-})
+
+IMAGES.forEach( img => img.addEventListener('click', removableFunction));
+
+
+
+//function that  finds out which image has been clicked
+
+//switch statement based off of what we get
+//const characterChosen = (function event click listener)
+
+
+//run css animations?
