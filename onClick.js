@@ -10,7 +10,7 @@ function removableFunction(){
 
             img.style.opacity = "0";
         });
-        console.log("hi");
+        IMAGES.forEach( img => img.removeEventListener('click', removableFunction));
     }
 
 IMAGES.forEach( img => img.addEventListener('click', removableFunction));
