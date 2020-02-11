@@ -11,8 +11,8 @@ h1{
     text-shadow: 2px 2px 4px #ADB0BF ;
     color:white;
     margin: 0;
-    transition: .5s;
-    transition-timing-function: ease-out ;
+    transition: .3s;
+    transition-timing-function: ease-out ; 
 }
 
 h1:hover{
@@ -130,7 +130,8 @@ img{
     border-style: solid;
     border-color: pink;
     border-radius: 25px;
-    transition: 2s;
+    transition: 1s;
+    
 }
 
 
@@ -143,8 +144,3 @@ img{
 }
 
 /* animations */
-
-.nonSelected{
-    background: black;
-
-}
