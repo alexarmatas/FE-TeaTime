@@ -1,50 +1,43 @@
 const IMAGES = document.querySelectorAll("img");
-const IMAGETEXT = document.querySelectorAll(".imgText");
-const STARTTEXT = document.querySelector(".startText");
-const annaColumn = document.querySelector(".col-2")
 const imageArray = Array.from(IMAGES);
-const imageTextArray = Array.from(IMAGETEXT);
-var gameImage;
-var gameCharacter;
-function opacityTransition(images){
-    console.log();
-    images.forEach( img => img.style.opacity ="0"); 
-    imageTextArray.forEach(function(txt){
-        txt.style.transition ="1s";
-        txt.style.opacity ="0";
-    });
-    STARTTEXT.style.transition = "1s";
-    STARTTEXT.style.opacity = "0";
-    IMAGES.forEach( img => img.removeEventListener('click', onListener));
-}
-
-function removeChildNode(){
-    for(let i = 0; i < imageArray.length; i++){;
-        let parentImage = imageArray[i].parentNode;
-        let parentText = imageTextArray[i].parentNode;
-        parentImage.removeChild(imageArray[i]);
-        parentText.removeChild(imageTextArray[i]);
-    }
-
-}
+const gameCharacter;
 
 
 
+//Game Start 
+IMAGES.forEach( img => img.addEventListener('click', onListener));
 
 function onListener(){
-        const selectedImage = event.target;
-        gameImage = selectedImage.src;
         gameCharacter = (event.target.nextSibling).nextSibling.innerText;
         gameCharacter = gameCharacter.toLowerCase();
-        opacityTransition(imageArray);
-        setTimeout(removeChildNode, 2000);
-        //set the DOM from the objects of character based of chosen character
-
-        
+        localStorage.setItem("gameCharacter", gameCharacter)    
 }
 
 
-IMAGES.forEach( img => img.addEventListener('click', onListener));
+
+//Chat Options Class
+
+class ChatOptions{
+    constructor(good, neutral, bad){
+        this.good = good;
+        this.neutral = neutral;
+        this.bad = bad;
+    }
+}
+
+//Character Class
+class Character{
+    constructor(name, imgFolder, chatOptions){
+        this.name = name;
+        this.imgFolder = imgFolder;
+        this.chatOptions = chatOptions;
+    }
+}
+
+
+const azura = new Character('azura', 'images\azuraFace\azuraSmile.png',  new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10'], ['11','12','13','14','15']));
+
+ 
 
 //remove other backgrounds files and then transition
 

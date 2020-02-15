@@ -92,6 +92,8 @@ header{
 
 }
 
+
+
 .col{
     padding: 1.5em;
     position: relative;
@@ -131,7 +133,56 @@ img{
     border-color: pink;
     border-radius: 25px;
     transition: 1s;
-    
+}
+
+/*In game CSS */
+
+.gameColumns{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.gameText{
+    border-style: solid;
+    border-color: #F8E9F2;
+    padding: 1em 8em;
+    margin: 10px auto;
+    font-family: "Press Start 2P", sans-serif;
+    background-color: pink ;
+    color: white;
+    transition: .3s;
+   
+}
+
+.gameText:hover {
+    color: #ADB0BF;
+
+}
+
+.gameImage{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    height: 350px;
+    width: auto;
+}
+
+.scoreText{
+    margin: 2rem;
+    color: pink;
+    text-shadow: 1px 1px 2px lightgray;
+}
+
+.gameScore{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2em;
+}
+
+#score1{
+    animation: spin 3s infinite ease-in-out;
 }
 
 
@@ -144,3 +195,28 @@ img{
 }
 
 /* animations */
+
+@keyframes spin{
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateY(359deg);
+    }
+}
+
+.transition{
+    animation: transitionIn 1s ease-in-out;
+}
+
+@keyframes transitionIn{
+    from{
+        opacity: 0;
+        /*transform: rotateX(-10deg);*/
+    }
+
+    to {
+        opacity: 1;
+        /*transform: rotateX(0);*/
+    }
+}
