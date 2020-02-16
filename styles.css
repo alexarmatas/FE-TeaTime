@@ -105,27 +105,27 @@ header{
 }
 
 .col-1:hover .imgAzura{
-    content:url(images/azuraFace/azuraSmile.png);
+    content:url(images/azura/azuraSmile.png);
 }
 
 .col-2:hover .imgAnna{
-    content:url(images/annaFace/annaSmile.png);
+    content:url(images/anna/annaSmile.png);
 }
 
 .col-3:hover .imgForrest{
-    content:url(images/forrestFace/forrestSmile.png);
+    content:url(images/forrest/forrestSmile.png);
 }
 
 .col-4:hover .imgLeo{
-    content:url(images/leoFace/leoSmile.png);
+    content:url(images/leo/leoSmile.png);
 }
 
 .col-5:hover .imgMarth{
-    content:url(images/marthFace/marthSmile.png);
+    content:url(images/marth/marthSmile.png);
 }
 
 .col-6:hover .imgOdin{
-    content:url(images/odinFace/odinSmile.png);
+    content:url(images/odin/odinSmile.png);
 }
 
 img{
@@ -160,7 +160,7 @@ img{
 
 }
 
-.gameImage{
+#gameImage{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2em;
