@@ -173,6 +173,7 @@ img{
     margin: 2rem;
     color: pink;
     text-shadow: 1px 1px 2px lightgray;
+    transition: 3s;
 }
 
 .gameScore{
@@ -182,23 +183,24 @@ img{
     font-size: 2em;
 }
 
-#score1{
+.scoreSpin{
     animation: spin 3s infinite ease-in-out;
 }
 
+
 .green-glow{
-    border: 3px solid #4dcc7d;
-    box-shadow: 0 0 10px #31b43a;
+    border: 3px solid #A7E9AF;
+    box-shadow: 0 0 10px #75b79e;
 }
 
 .red-glow{
-    border: 3px solid #fc121b;
-    box-shadow: 0 0 10px #d01115;
+    border: 3px solid #fa163f;
+    box-shadow: 0 0 10px #d31437;
 }
 
 .gray-glow{
-    border: 3px solid #464647;
-    box-shadow: 0 0 10px #25292b;
+    border: 3px solid rgb(198, 200, 214);
+    box-shadow: 0 0 10px #ADB0BF;
 }
 
 
