@@ -92,17 +92,61 @@ var playerScore = 0;
 var winningScore = 3;
 var characterName = ""
 
-function gameResult(){
+function characterGame(character){
+    characterName = character;
+    game_img.src = characterName.images.base;
+    hearts_p[roundNumber].classList.add('scoreSpin');
+    questions = randomQuestion(characterName);
+    originalQuestions = questions[0];
+    randomQuestions = questions[1];
+    for(let i = 0; i < 3; i++){
+        questions_p[i].innerHTML = randomQuestions[i];
+    }
+    questions_p[0].addEventListener('click', () => game(event));
+    questions_p[1].addEventListener('click', () => game(event));
+    questions_p[2].addEventListener('click', () => game(event));
+
    
+}
+
+
+function gameResult(){
     //change DOM
     if(playerScore >= winningScore ){
         //winner DOM
-        game_img.src = characterName.images.smile;
-        questions_p.forEach((p) => p.innerHTML = "YOU WIN");
-    } else{
-        game_img.src = characterName.images.frown;
-        questions_p.forEach((p) => p.innerHTML = "YOU LOSE");
+        setTimeout(() =>  questions_p.forEach((p) =>{
+            game_img.src = characterName.images.smile;
+            p.classList.add('green-glow');
+            p.innerHTML = "YOU WIN"}), 500);       
+        setTimeout(() => questions_p.forEach((p) => {
+            p.classList.add('transition');
+            p.classList.remove('green-glow')}), 3000);
 
+        setTimeout(() => {
+            questions_p[0].innerHTML = ("Play Again? " + "(" + characterName.name + ")");
+            questions_p[0].onclick = () =>  window.location.href = "gameStart.html";
+            questions_p[1].innerHTML = "Character Selection";
+            questions_p[1].onclick = () =>  window.location.href = "index.html";
+            questions_p[2].innerHTML = "Thanks for Playing!";
+        }, 3200);
+
+
+    } else{
+        setTimeout(() =>  questions_p.forEach((p) =>{
+            game_img.src = characterName.images.frown;
+            p.classList.add('red-glow');
+            p.innerHTML = "YOU LOSE"}), 500);       
+        setTimeout(() => questions_p.forEach((p) =>{
+            p.classList.add('transition');
+            p.classList.remove('red-glow')}), 3000);
+
+        setTimeout(() => {
+            questions_p[0].innerHTML = ("Play Again? " + "(" + characterName.name + ")");
+            questions_p[0].onclick = () =>  window.location.href = "gameStart.html";
+            questions_p[1].innerHTML = "Character Selection";
+            questions_p[1].onclick = () =>  window.location.href = "index.html";
+            questions_p[2].innerHTML = "Thanks for Playing!";
+        }, 3200);
     }
 }
    
@@ -116,7 +160,7 @@ function game(event){
             game_img.src = characterName.images.smile;
             setTimeout(() => {
                 eventTarget.classList.remove('green-glow');
-                game_img.src = characterName.images.base;}, 1000);
+                game_img.src = characterName.images.base;}, 500);
             hearts_p[roundNumber].style.color = "#A7E9AF";
             playerScore++;
             hearts_p[roundNumber].classList.remove('scoreSpin');
@@ -136,7 +180,7 @@ function game(event){
 
         case originalQuestions[1]:
             eventTarget.classList.add('gray-glow');
-            setTimeout(() => eventTarget.classList.remove('gray-glow'), 1000);
+            setTimeout(() => eventTarget.classList.remove('gray-glow'), 500);
             hearts_p[roundNumber].style.color = "#ADB0BF";
             hearts_p[roundNumber].classList.remove('scoreSpin');
             roundNumber++;
@@ -158,7 +202,7 @@ function game(event){
             game_img.src = characterName.images.frown;
             setTimeout(() => {
                 eventTarget.classList.remove('red-glow')
-                game_img.src = characterName.images.base;}, 1000);
+                game_img.src = characterName.images.base;}, 500);
             hearts_p[roundNumber].style.color = "#fa163f";
             playerScore--;
             hearts_p[roundNumber].classList.remove('scoreSpin');
@@ -179,22 +223,6 @@ function game(event){
 
 }
 
-function characterGame(character){
-    characterName = character;
-    game_img.src = characterName.images.base;
-    hearts_p[roundNumber].classList.add('scoreSpin');
-    questions = randomQuestion(characterName);
-    originalQuestions = questions[0];
-    randomQuestions = questions[1];
-    for(let i = 0; i < 3; i++){
-        questions_p[i].innerHTML = randomQuestions[i];
-    }
-    questions_p[0].addEventListener('click', () => game(event));
-    questions_p[1].addEventListener('click', () => game(event));
-    questions_p[2].addEventListener('click', () => game(event));
-
-   
-}
 
 
 
@@ -229,36 +257,33 @@ class Character{
 
 
 const azura = new Character('azura', new charImages('images/azura/azuraBase.png', 'images/azura/azuraSmile.png', 'images/azura/azuraFrown.png') ,
-  new ChatOptions(['a','b','c','d','e','f'], ['g','h','i','j','k','l'], ['m','n','o','p','q','r']));
+  new ChatOptions(['A strong battalion',"Books you've read recently",'Capable comrades','The last battle',"I'm counting on you",'Reliable allies'],
+    ['Past laughs','Someone you look up to','A new gambit','Working together',"Guessing someone's age",'Things that bother you'],
+    ['Our first meeting','Tell me about yourself','The view from the bridge','Your ambitions','Equipment upkeep','I heard some gossip']));
 
-const anna = new Character('azura', new charImages('images/anna/annaBase.png', 'images/anna/annaSmile.png', 'images/anna/annaFrown.png'),
-  new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10','10'], ['11','12','13','14','15','16']));
+const anna = new Character('anna', new charImages('images/anna/annaBase.png', 'images/anna/annaSmile.png', 'images/anna/annaFrown.png'),
+  new ChatOptions(['Cats','Children at the market','Cute monks','Favorite sweets','Cooking mishaps','Shareable snacks'],
+    ['School days','School uniforms','You seem well','Exploring','Likeable allies','Things you find romantic'],
+    ['Plans for the future','You seem different','The ideal relationship','Working hours for guards','First crushes','Dreamy knights']));
 
 const forrest = new Character('forrest', new charImages('images/forrest/forrestBase.png', 'images/forrest/forrestSmile.png', 'images/forrest/forrestFrown.png'),
-new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10','10'], ['11','12','13','14','15','16']));
+new ChatOptions(['A dinner invitation','Cute accessories','Cute monks','Dining partners','Dreamy knights','Fashion'],
+    ['Gardening mishaps','Relaxing at the Sauna','I heard some gossip','Heart-racing memories','Our first meeting','Things that bother you'],
+    ['Evaluating allies','The opera','You seem different',"I'm counting on you",'The courtyard couple','Children at the market']));
 
 const leo = new Character('leo', new charImages('images/leo/leoBase.png', 'images/leo/leoSmile.png', 'images/leo/leoFrown.png'),
-new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10','10'], ['11','12','13','14','15','16']));
+new ChatOptions(['Evaluating allies','Mighty weapons',"I'm counting on you",'Overcoming weaknesses','Children at the market','The last battle'],
+    ['Food in the Dining Hall','Shareable snacks','Cats','A dinner invitation','Favorite sweets','Perfect recipes'],
+    ['Fashion','First crushes','Dating escapades','Dining partners','I heard some gossip','Cute monks']));
 
 const marth = new Character('marth', new charImages('images/marth/marthBase.png', 'images/marth/marthSmile.png', 'images/marth/marthFrown.png'),
-new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10','10'], ['11','12','13','14','15','16']));
+new ChatOptions(['The view from the bridge','You seem well','Working together','Relaxing at the Sauna','Likeable allies','Hopes for your future'],
+    ['Thanks for everything','Tell me about yourself','Overcoming weaknesses','Past laughs','Dating escapades','Dining partners'],
+    ['I heard some gossip','You seem different','The opera','Cooking mishaps',"A place you'd like to visit","Guessing someone's age"]));
 
 const odin = new Character('odin', new charImages('images/odin/odinBase.png', 'images/odin/odinSmile.png', 'images/odin/odinFrown.png'),
-new ChatOptions(['0','1','2','3','4','5'], ['6','7','8','9','10','10'], ['11','12','13','14','15','16']));
+new ChatOptions(['Close calls','Successful plots','Your ambitions','Tell me about yourself','You seem well','A new gambit'],
+    ['Capable comrades','Overcoming weaknesses','Shareable snacks','First crushes','The ideal relationship','Cats'],
+    ['Someone you look up to','Equipment upkeep','Dreamy knights','Children at the market','A strong battalion','The opera']));
  
 
-//remove other backgrounds files and then transition
-
-//Transition into the game start scene
-
-
-
-
-
-//function that  finds out which image has been clicked
-
-//switch statement based off of what we get
-//const characterChosen = (function event click listener)
-
-
-//run css animations?
